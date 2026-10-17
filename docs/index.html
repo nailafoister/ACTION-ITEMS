@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Action Items Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --text: #e8edf5;
+      --muted: #9aa8bc;
+      --accent: #4da3ff;
+      --border: #2b3a52;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #0b1020 0%, #121a28 45%, #0f1419 100%);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 { margin: 0 0 0.35rem; font-size: 1.85rem; }
+    .badge {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #24344d;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .lede, .meta { color: var(--muted); }
+    .meta { margin: 0.75rem 0 1.5rem; font-size: 0.95rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0.75rem 0 1.5rem;
+    }
+    th, td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #223047; color: #d5e2f5; font-size: 0.85rem; }
+    tr:last-child td { border-bottom: none; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h2 { margin-top: 2rem; font-size: 1.25rem; }
+    h3 { margin: 1.75rem 0 0.35rem; font-size: 1.05rem; }
+    .owner-block { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="badge">Phase 1 test build</p>
+    <h1>Open Action Items Dashboard</h1>
+    <p class="lede">Need real-time data? Refresh from Cursor using the Phase 1 automation (local MCP tools).</p>
+    <p class="meta"><strong>Last Updated:</strong> Friday, October 16, 2026, 07:34 PM PDT</p>
+    <p class="lede">
+      Open action items from the
+      <a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2">general tracker</a>,
+      <a href="https://gm-sdv.atlassian.net/browse/AVSV-2461">Init 2 Execution Meeting (AVSV-2461)</a>, and
+      <a href="https://gm-sdv.atlassian.net/browse/AVSV-1965">Operating Plan Execution (AVSV-1965)</a>.
+      Each item is counted once in source totals (43 active rows in this build);
+      owner counts include every person listed as owner.
+    </p>
+
+    <h2>Summary</h2>
+    <table>
+      <thead>
+        <tr><th>Owner</th><th>Active Item Count</th><th>Breakdown</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Naila Foister</td><td>10</td><td><a href="#Naila-Foister">View 10 open item(s)</a></td></tr><tr><td>Disha Kote</td><td>7</td><td><a href="#Disha-Kote">View 7 open item(s)</a></td></tr><tr><td>Rohan Kandlur</td><td>6</td><td><a href="#Rohan-Kandlur">View 6 open item(s)</a></td></tr><tr><td>Nick Famiglietti</td><td>4</td><td><a href="#Nick-Famiglietti">View 4 open item(s)</a></td></tr><tr><td>Pradeep Bhatta</td><td>4</td><td><a href="#Pradeep-Bhatta">View 4 open item(s)</a></td></tr><tr><td>Josh Parish</td><td>2</td><td><a href="#Josh-Parish">View 2 open item(s)</a></td></tr><tr><td>Rachel Kohler</td><td>2</td><td><a href="#Rachel-Kohler">View 2 open item(s)</a></td></tr><tr><td>Babak Shahian Jahromi</td><td>1</td><td><a href="#Babak-Shahian-Jahromi">View 1 open item(s)</a></td></tr><tr><td>Int. V3 DRIS</td><td>1</td><td><a href="#Int-V3-DRIS">View 1 open item(s)</a></td></tr><tr><td>James Meadows</td><td>1</td><td><a href="#James-Meadows">View 1 open item(s)</a></td></tr><tr><td>Ken Tung</td><td>1</td><td><a href="#Ken-Tung">View 1 open item(s)</a></td></tr><tr><td>Malavika Bindhi</td><td>1</td><td><a href="#Malavika-Bindhi">View 1 open item(s)</a></td></tr><tr><td>Pei Xu</td><td>1</td><td><a href="#Pei-Xu">View 1 open item(s)</a></td></tr><tr><td>Sneha Singh</td><td>1</td><td><a href="#Sneha-Singh">View 1 open item(s)</a></td></tr><tr><td>Vikas Pawar</td><td>1</td><td><a href="#Vikas-Pawar">View 1 open item(s)</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Open items by owner</h2>
+    <section class="owner-block" id="Naila-Foister"><h3>Naila Foister</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Align with sprint leads Marian, Pradeep, Rohan Kandlur on how to get info to roll up to Hooman’s Thursday meeting (send out note on 9/10)</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-17</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B1004">Sheet row 1004</a></td></tr><tr><td>Buffer for Dropout in SIM Implementation</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3179">AVSV-3179</a></td></tr><tr><td>Dashboard for Milestone Summary</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5607">AVSV-5607</a></td></tr><tr><td>Reporting Rollup Considerations (ALL LEADS)</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5608">AVSV-5608</a></td></tr><tr><td>Identify any other sections that need updates as described in AVSV-3555</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3556">AVSV-3556</a></td></tr><tr><td>Metrics need defined for both availability &amp; reliability</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1972">AVSV-1972</a></td></tr><tr><td>SORP &amp; Deliverable Definition for each objective (as applicable)</td><td>Operating Plan Execution</td><td>Work in progress</td><td>Due 2026-06-05</td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1966">AVSV-1966</a></td></tr><tr><td>Streamlined DRI Assignment for getting tests into protocol</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3428">AVSV-3428</a></td></tr><tr><td>Update Template for Init 2 OPE Reviews to Include PSL and Mapping</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3558">AVSV-3558</a></td></tr><tr><td>Update to Metrics/Slicer charts</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3557">AVSV-3557</a></td></tr></tbody></table></section><section class="owner-block" id="Disha-Kote"><h3>Disha Kote</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>80% BoR
+
+get in touch with Bob to gain flexibility on the interfaces.
+
+A risk-based approach to interface freezes: lock down supplier-dependent and hardware-related interfaces early, but avoid unnecessarily freezing internal software interfaces six months in advance if those can continue to evolve
+
+Prioritize what’s absolute external Vendor
+
+Interface with our own chips/internal - for flexibility</td><td>General tracker</td><td>New</td><td>Due 2026-10-02</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B39">Sheet row 39</a></td></tr><tr><td>Clarify severe-collision workflow requirements, required signals, and vehicle-integration implications.</td><td>General tracker</td><td>New</td><td>Due 2026-10-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B31">Sheet row 31</a></td></tr><tr><td>Define the Integration V3 acceptance bar, distinct from the higher supervised-enablement/performance bar.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B26">Sheet row 26</a></td></tr><tr><td>Follow up with Josh/Marian on specifics for LEO pullover stop required.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-13</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B35">Sheet row 35</a></td></tr><tr><td>Clarification of 3 sub-milestones for Int v3</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5611">AVSV-5611</a></td></tr><tr><td>Feature FMEAs</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5609">AVSV-5609</a></td></tr><tr><td>Posted Speed Limit Updates</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3559">AVSV-3559</a></td></tr></tbody></table></section><section class="owner-block" id="Rohan-Kandlur"><h3>Rohan Kandlur</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>AVDEP-2164: Narrow down list of capabilities that we believe will be new scope &amp; add to AVDEP.</td><td>General tracker</td><td>New</td><td>Due 2026-10-19</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B44">Sheet row 44</a></td></tr><tr><td>Check on what logs the CC team is looking at when they are running the tests (with support from Tim) - INCA, CAN logs etc.</td><td>General tracker</td><td>New</td><td>Due 2026-10-19</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B40">Sheet row 40</a></td></tr><tr><td>Integrated Functional Tests (IFT) needed near end of PI215 need more definiton &amp; alignment with VI and VTE.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-12</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B22">Sheet row 22</a></td></tr><tr><td>Review and align end-of-PI expectations, scope, and timing with Disha</td><td>General tracker</td><td>New</td><td>Due 2026-09-23</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B5">Sheet row 5</a></td></tr><tr><td>V3 ACC Scope Definition Clarity</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5603">AVSV-5603</a></td></tr><tr><td>Follow up on Bench Workshop</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3562">AVSV-3562</a></td></tr></tbody></table></section><section class="owner-block" id="Nick-Famiglietti"><h3>Nick Famiglietti</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Include summary of progress of suites in scrum of scrum updates</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5615">AVSV-5615</a></td></tr><tr><td>Recommend Coverage Goals vs. AVCI proviidng us with reqts</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5605">AVSV-5605</a></td></tr><tr><td>Training Session on RTEM Regression Expectations</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5606">AVSV-5606</a></td></tr><tr><td>AVCI Integration Details</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3554">AVSV-3554</a></td></tr></tbody></table></section><section class="owner-block" id="Pradeep-Bhatta"><h3>Pradeep Bhatta</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Add Sprint Goals to Scrum of Scrums Table</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5604">AVSV-5604</a></td></tr><tr><td>Add details on how we tell when a line is crossed to where we are making a customer impact (in regards to subsystem roadmap)</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2465">AVSV-2465</a></td></tr><tr><td>Send Disha reqts from Pratham/Charlie for Ben Williams team</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5610">AVSV-5610</a></td></tr><tr><td>Use Escape Rate as a driver for solution areas to be held accountable to a goal</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2464">AVSV-2464</a></td></tr></tbody></table></section><section class="owner-block" id="Josh-Parish"><h3>Josh Parish</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Need issues fixed or ETA for fixing issues from Precision Flow Round 1</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B18">Sheet row 18</a></td></tr><tr><td>Provide applicable implementation timing (Construction/V2 Carryover) so the team can decide what V2 carryover belongs in Integration V3.</td><td>General tracker</td><td>New</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B25">Sheet row 25</a></td></tr></tbody></table></section><section class="owner-block" id="Rachel-Kohler"><h3>Rachel Kohler</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Follow up on the Integration V3 dynamic-display work items and how they will be tracked.</td><td>General tracker</td><td>New</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B28">Sheet row 28</a></td></tr><tr><td>Using Structured Perception in RTEM</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1968">AVSV-1968</a></td></tr></tbody></table></section><section class="owner-block" id="Babak-Shahian-Jahromi"><h3>Babak Shahian Jahromi</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Supervised ODD Control Roadmap</td><td>Operating Plan Execution</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2451">AVSV-2451</a></td></tr></tbody></table></section><section class="owner-block" id="Int-V3-DRIS"><h3>Int. V3 DRIS</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Develop a high-level test plan covering simulation, HIL/vehicle, closed-course tests, frameworks, tools, assets, and dependencies.</td><td>General tracker</td><td>New</td><td>Due 2026-10-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B29">Sheet row 29</a></td></tr></tbody></table></section><section class="owner-block" id="James-Meadows"><h3>James Meadows</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Need issues fixed or ETA for fixing issues from Precision Flow Round 1</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B19">Sheet row 19</a></td></tr></tbody></table></section><section class="owner-block" id="Ken-Tung"><h3>Ken Tung</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Deep Dive on Reliability to be held with Srishti</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1973">AVSV-1973</a></td></tr></tbody></table></section><section class="owner-block" id="Malavika-Bindhi"><h3>Malavika Bindhi</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Respond to HIL team on whether CASH bench can be used for AVDEP-2223 scope</td><td>General tracker</td><td>New</td><td>Due 2026-10-19</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B41">Sheet row 41</a></td></tr></tbody></table></section><section class="owner-block" id="Pei-Xu"><h3>Pei Xu</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Should Design Envelope be part of SCB moving forward with another initiative</td><td>Operating Plan Execution</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2456">AVSV-2456</a></td></tr></tbody></table></section><section class="owner-block" id="Sneha-Singh"><h3>Sneha Singh</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>ETA for LLCM tools into mainstream OLR framework -&gt; integration into CI</td><td>Operating Plan Execution</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2226">AVSV-2226</a></td></tr></tbody></table></section><section class="owner-block" id="Vikas-Pawar"><h3>Vikas Pawar</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Consider deeper discussion with safety team to determine appropriate strategy for safety factor vs. just asking safety team to provide a value to us without SW Val providing other guidance &amp; input.</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3104">AVSV-3104</a></td></tr></tbody></table></section>
+  </main>
+</body>
+</html>
