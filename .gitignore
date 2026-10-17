@@ -1,0 +1,10 @@
+# Local fetch cache (refresh via Agent; do not commit tokens)
+data/general-tracker.xlsx
+data/jira-init2.json
+data/jira-opex.json
+docs/tracking-data.json
+
+# OS / editor
+.DS_Store
+__pycache__/
+*.pyc
