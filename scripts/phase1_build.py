@@ -11,8 +11,12 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 import openpyxl
+
+PST = ZoneInfo("America/Los_Angeles")
+HISTORY_SCRIPT_ID = "dashboard-history"
 
 SHEET_ID = "1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ"
 SHEET_GID = 2
@@ -197,11 +201,60 @@ def expand_by_owner(items: list[dict]) -> list[dict]:
     return expanded
 
 
+def format_pst(dt: datetime) -> str:
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone(PST)
+    return local.strftime("%A, %B %d, %Y, %I:%M %p PST")
+
+
+def load_history_from_html(html_path: Path) -> list[dict[str, Any]]:
+    if not html_path.exists():
+        return []
+    text = html_path.read_text(encoding="utf-8")
+    marker = f'id="{HISTORY_SCRIPT_ID}"'
+    start = text.find(marker)
+    if start == -1:
+        return []
+    content_start = text.find(">", start) + 1
+    content_end = text.find("</script>", content_start)
+    if content_end == -1:
+        return []
+    raw = text[content_start:content_end].strip()
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+        return data if isinstance(data, list) else []
+    except json.JSONDecodeError:
+        return []
+
+
+def append_history(
+    history: list[dict[str, Any]], updated: datetime, open_count: int, closed_count: int
+) -> list[dict[str, Any]]:
+    if updated.tzinfo is None:
+        updated = updated.replace(tzinfo=timezone.utc)
+    label = updated.astimezone(PST).strftime("%Y-%m-%d")
+    entry = {
+        "date": label,
+        "open": open_count,
+        "closed": closed_count,
+        "updated": updated.isoformat(),
+    }
+    if history and history[-1].get("date") == label:
+        history[-1] = entry
+    else:
+        history.append(entry)
+    return history[-24:]
+
+
 def build_dashboard(
     open_active: list[dict],
     closed_all: list[dict],
     cursor_url: str,
     updated: datetime,
+    history: list[dict[str, Any]],
 ) -> str:
     by_owner: dict[str, list[dict]] = defaultdict(list)
     for item in open_active:
@@ -273,7 +326,12 @@ def build_dashboard(
 
     open_count = len(open_active)
     closed_count = len(closed_all)
-    ts = updated.strftime("%A, %B %d, %Y, %I:%M %p UTC")
+    ts = format_pst(updated)
+    history_json = json.dumps(history)
+
+    trend_labels = [h["date"] for h in history]
+    trend_open = [h["open"] for h in history]
+    trend_closed = [h["closed"] for h in history]
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -315,7 +373,13 @@ def build_dashboard(
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: 1rem;
-      margin: 1.25rem 0 2rem;
+      margin: 1.25rem 0 1rem;
+    }}
+    .charts-wide {{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 0 0 2rem;
     }}
     @media (max-width: 900px) {{ .charts {{ grid-template-columns: 1fr; }} }}
     .chart-card {{
@@ -382,6 +446,13 @@ def build_dashboard(
       </div>
     </div>
 
+    <div class="charts-wide">
+      <div class="chart-card">
+        <h2>Open vs closed over time (stacked bars) with open-item trendline</h2>
+        <canvas id="trendChart" height="240"></canvas>
+      </div>
+    </div>
+
     <h2 class="section">Owner summary</h2>
     <table>
       <thead>
@@ -395,6 +466,7 @@ def build_dashboard(
     <h2 class="section">Open items by owner</h2>
     {"".join(owner_sections)}
   </main>
+  <script type="application/json" id="{HISTORY_SCRIPT_ID}">{history_json}</script>
   <script>
     const pieCtx = document.getElementById('pieChart');
     new Chart(pieCtx, {{
@@ -450,6 +522,51 @@ def build_dashboard(
         }},
       }},
     }});
+
+    const trendCtx = document.getElementById('trendChart');
+    new Chart(trendCtx, {{
+      data: {{
+        labels: {json.dumps(trend_labels)},
+        datasets: [
+          {{
+            type: 'bar',
+            label: 'Open action items',
+            data: {json.dumps(trend_open)},
+            backgroundColor: '#4da3ff',
+            stack: 'counts',
+            order: 2,
+          }},
+          {{
+            type: 'bar',
+            label: 'Closed action items',
+            data: {json.dumps(trend_closed)},
+            backgroundColor: '#5c6778',
+            stack: 'counts',
+            order: 3,
+          }},
+          {{
+            type: 'line',
+            label: 'Open count trend',
+            data: {json.dumps(trend_open)},
+            borderColor: '#ffd166',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.25,
+            pointRadius: 4,
+            yAxisID: 'y',
+            order: 1,
+          }},
+        ],
+      }},
+      options: {{
+        responsive: true,
+        scales: {{
+          x: {{ stacked: true }},
+          y: {{ stacked: true, beginAtZero: true, ticks: {{ precision: 0 }} }},
+        }},
+        plugins: {{ legend: {{ position: 'bottom' }} }},
+      }},
+    }});
   </script>
 </body>
 </html>
@@ -476,7 +593,14 @@ def main() -> None:
     open_expanded = expand_by_owner(sheet_open + jira_open)
     closed_expanded = expand_by_owner(sheet_closed + jira_closed)
 
-    html_out = build_dashboard(open_expanded, closed_expanded, cursor_url, now)
+    history = load_history_from_html(args.out)
+    history = append_history(
+        history, now, len(open_expanded), len(closed_expanded)
+    )
+
+    html_out = build_dashboard(
+        open_expanded, closed_expanded, cursor_url, now, history
+    )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(html_out, encoding="utf-8")
 
