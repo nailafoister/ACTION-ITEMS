@@ -38,7 +38,13 @@
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: 1rem;
-      margin: 1.25rem 0 2rem;
+      margin: 1.25rem 0 1rem;
+    }
+    .charts-wide {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 0 0 2rem;
     }
     @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } }
     .chart-card {
@@ -81,7 +87,11 @@
       anytime directly from your own Cursor editor without triggering a Slack alert.
     </div>
     <h1>Open Action Items Dashboard</h1>
+<<<<<<< HEAD
     <p class="meta"><strong>Last Updated:</strong> Thursday, October 22, 2026, 12:29 PM PDT</p>
+=======
+    <p class="meta"><strong>Last Updated:</strong> Thursday, October 22, 2026, 12:34 PM PST</p>
+>>>>>>> cursor/action-items-dashboard-automation-b8fc
     <p class="live-link">
       <strong>Live deployment:</strong>
       <a href="https://nailafoister.github.io/ACTION-ITEMS/#Naila-Foister" target="_blank" rel="noopener">https://nailafoister.github.io/ACTION-ITEMS/#Naila-Foister</a>
@@ -102,6 +112,13 @@
       <div class="chart-card">
         <h2>Active items by owner and source (click a segment for task breakdown)</h2>
         <canvas id="stackedBar" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="charts-wide">
+      <div class="chart-card">
+        <h2>Open vs closed over time (stacked bars) with open-item trendline</h2>
+        <canvas id="trendChart" height="240"></canvas>
       </div>
     </div>
 
@@ -126,6 +143,7 @@ Prioritize what’s absolute external Vendor
 
 Interface with our own chips/internal - for flexibility</td><td>General tracker</td><td>New</td><td>Due 2026-10-02</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B39" target="_blank" rel="noopener">Sheet row 39</a></td></tr><tr><td>Clarify severe-collision workflow requirements, required signals, and vehicle-integration implications.</td><td>General tracker</td><td>New</td><td>Due 2026-10-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B31" target="_blank" rel="noopener">Sheet row 31</a></td></tr><tr><td>Define the Integration V3 acceptance bar, distinct from the higher supervised-enablement/performance bar.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B26" target="_blank" rel="noopener">Sheet row 26</a></td></tr><tr><td>Follow up with Josh/Marian on specifics for LEO pullover stop required.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-13</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B35" target="_blank" rel="noopener">Sheet row 35</a></td></tr><tr><td>Clarification of 3 sub-milestones for Int v3</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5611" target="_blank" rel="noopener">AVSV-5611</a></td></tr><tr><td>Feature FMEAs</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5609" target="_blank" rel="noopener">AVSV-5609</a></td></tr><tr><td>Posted Speed Limit Updates</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3559" target="_blank" rel="noopener">AVSV-3559</a></td></tr></tbody></table></section><section class="owner-block" id="Naila-Foister"><h3>Naila Foister</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Align with sprint leads Marian, Pradeep, Rohan Kandlur on how to get info to roll up to Hooman’s Thursday meeting (send out note on 9/10)</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-17</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B1004" target="_blank" rel="noopener">Sheet row 1004</a></td></tr><tr><td>Buffer for Dropout in SIM Implementation</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3179" target="_blank" rel="noopener">AVSV-3179</a></td></tr><tr><td>Dashboard for Milestone Summary</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5607" target="_blank" rel="noopener">AVSV-5607</a></td></tr><tr><td>Reporting Rollup Considerations (ALL LEADS)</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5608" target="_blank" rel="noopener">AVSV-5608</a></td></tr></tbody></table></section><section class="owner-block" id="Pradeep-Bhatta"><h3>Pradeep Bhatta</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Add Sprint Goals to Scrum of Scrums Table</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5604" target="_blank" rel="noopener">AVSV-5604</a></td></tr><tr><td>Add details on how we tell when a line is crossed to where we are making a customer impact (in regards to subsystem roadmap)</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2465" target="_blank" rel="noopener">AVSV-2465</a></td></tr><tr><td>Send Disha reqts from Pratham/Charlie for Ben Williams team</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5610" target="_blank" rel="noopener">AVSV-5610</a></td></tr><tr><td>Use Escape Rate as a driver for solution areas to be held accountable to a goal</td><td>Init 2 Execution Meeting</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2464" target="_blank" rel="noopener">AVSV-2464</a></td></tr></tbody></table></section><section class="owner-block" id="Nick-Famiglietti"><h3>Nick Famiglietti</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Include summary of progress of suites in scrum of scrum updates</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5615" target="_blank" rel="noopener">AVSV-5615</a></td></tr><tr><td>Recommend Coverage Goals vs. AVCI proviidng us with reqts</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5605" target="_blank" rel="noopener">AVSV-5605</a></td></tr><tr><td>Training Session on RTEM Regression Expectations</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-5606" target="_blank" rel="noopener">AVSV-5606</a></td></tr></tbody></table></section><section class="owner-block" id="Rohan-Kandlur"><h3>Rohan Kandlur</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>AVDEP-2164: Narrow down list of capabilities that we believe will be new scope &amp; add to AVDEP.</td><td>General tracker</td><td>New</td><td>Due 2026-10-19</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B44" target="_blank" rel="noopener">Sheet row 44</a></td></tr><tr><td>Integrated Functional Tests (IFT) needed near end of PI215 need more definiton &amp; alignment with VI and VTE.</td><td>General tracker</td><td>In Progress</td><td>Due 2026-10-12</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B22" target="_blank" rel="noopener">Sheet row 22</a></td></tr><tr><td>Follow up on Bench Workshop</td><td>Operating Plan Execution</td><td>Ready</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3562" target="_blank" rel="noopener">AVSV-3562</a></td></tr></tbody></table></section><section class="owner-block" id="Josh-Parish"><h3>Josh Parish</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Need issues fixed or ETA for fixing issues from Precision Flow Round 1</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B18" target="_blank" rel="noopener">Sheet row 18</a></td></tr><tr><td>Provide applicable implementation timing (Construction/V2 Carryover) so the team can decide what V2 carryover belongs in Integration V3.</td><td>General tracker</td><td>New</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B25" target="_blank" rel="noopener">Sheet row 25</a></td></tr></tbody></table></section><section class="owner-block" id="Babak-Shahian-Jahromi"><h3>Babak Shahian Jahromi</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Supervised ODD Control Roadmap</td><td>Operating Plan Execution</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-2451" target="_blank" rel="noopener">AVSV-2451</a></td></tr></tbody></table></section><section class="owner-block" id="Int-V3-DRIS"><h3>Int. V3 DRIS</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Develop a high-level test plan covering simulation, HIL/vehicle, closed-course tests, frameworks, tools, assets, and dependencies.</td><td>General tracker</td><td>New</td><td>Due 2026-10-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B29" target="_blank" rel="noopener">Sheet row 29</a></td></tr></tbody></table></section><section class="owner-block" id="James-Meadows"><h3>James Meadows</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Need issues fixed or ETA for fixing issues from Precision Flow Round 1</td><td>General tracker</td><td>In Progress</td><td>Due 2026-09-09</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B19" target="_blank" rel="noopener">Sheet row 19</a></td></tr></tbody></table></section><section class="owner-block" id="Ken-Tung"><h3>Ken Tung</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Deep Dive on Reliability to be held with Srishti</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1973" target="_blank" rel="noopener">AVSV-1973</a></td></tr></tbody></table></section><section class="owner-block" id="Parag-Ahire"><h3>Parag Ahire</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Metrics need defined for both availability &amp; reliability</td><td>Operating Plan Execution</td><td>Work in progress</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-1972" target="_blank" rel="noopener">AVSV-1972</a></td></tr></tbody></table></section><section class="owner-block" id="Rachel-Kohler"><h3>Rachel Kohler</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Follow up on the Integration V3 dynamic-display work items and how they will be tracked.</td><td>General tracker</td><td>New</td><td>Due 2026-10-05</td><td><a href="https://docs.google.com/spreadsheets/d/1qw-UoMqKG2tWO5JNwDYo2bSQzecFJaJJ/edit#gid=2&amp;range=B28" target="_blank" rel="noopener">Sheet row 28</a></td></tr></tbody></table></section><section class="owner-block" id="Vikas-Pawar"><h3>Vikas Pawar</h3><table><thead><tr><th>Action item</th><th>Source</th><th>Status</th><th>Timing</th><th>Link</th></tr></thead><tbody><tr><td>Consider deeper discussion with safety team to determine appropriate strategy for safety factor vs. just asking safety team to provide a value to us without SW Val providing other guidance &amp; input.</td><td>Init 2 Execution Meeting</td><td>Draft</td><td></td><td><a href="https://gm-sdv.atlassian.net/browse/AVSV-3104" target="_blank" rel="noopener">AVSV-3104</a></td></tr></tbody></table></section>
   </main>
+  <script type="application/json" id="dashboard-history">[{"date": "2026-10-22", "open": 30, "closed": 76, "updated": "2026-10-22T19:34:43.102687+00:00"}]</script>
   <script>
     const pieCtx = document.getElementById('pieChart');
     new Chart(pieCtx, {
@@ -179,6 +197,51 @@ Interface with our own chips/internal - for flexibility</td><td>General tracker<
           const link = stackedChart.data.datasets[el.datasetIndex].anchorLinks[el.index];
           if (link) window.location.hash = link.slice(1);
         },
+      },
+    });
+
+    const trendCtx = document.getElementById('trendChart');
+    new Chart(trendCtx, {
+      data: {
+        labels: ["2026-10-22"],
+        datasets: [
+          {
+            type: 'bar',
+            label: 'Open action items',
+            data: [30],
+            backgroundColor: '#4da3ff',
+            stack: 'counts',
+            order: 2,
+          },
+          {
+            type: 'bar',
+            label: 'Closed action items',
+            data: [76],
+            backgroundColor: '#5c6778',
+            stack: 'counts',
+            order: 3,
+          },
+          {
+            type: 'line',
+            label: 'Open count trend',
+            data: [30],
+            borderColor: '#ffd166',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.25,
+            pointRadius: 4,
+            yAxisID: 'y',
+            order: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, beginAtZero: true, ticks: { precision: 0 } },
+        },
+        plugins: { legend: { position: 'bottom' } },
       },
     });
   </script>
